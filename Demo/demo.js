@@ -3,8 +3,13 @@ let time = (startingMinutes * 60);
 
 const timerDisplayElement = document.getElementById('timer-display');
 
+var timer;
+
 function updateTimer() {
-	time--;
+  time--;
+  
+  if(time <= 0)
+  clearInterval(timer);
   
 	const minutes = Math.floor(time/60);
   let seconds = time % 60;
@@ -14,8 +19,6 @@ function updateTimer() {
   
   timerDisplayElement.innerHTML = min + ':' + sec;
 }
-
-var timer;
 
 document.getElementById('start-btn').onclick = function() {
 	timer = setInterval(updateTimer, 1000);
