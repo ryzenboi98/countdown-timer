@@ -9,7 +9,8 @@ function updateTimer() {
   time--;
   
   if(time <= 0)
-  clearInterval(timer);
+    clearInterval(timer);
+    timerDisplayElement.innerHTML = "00:00";
   
 	const minutes = Math.floor(time/60);
   let seconds = time % 60;
